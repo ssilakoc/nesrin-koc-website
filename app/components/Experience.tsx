@@ -106,7 +106,6 @@ export default function Experience() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          {/* Header */}
           <motion.div variants={itemVariants} className="max-w-xl mb-16">
             <span className="font-inter text-xs text-sage-500 font-medium tracking-widest uppercase mb-3 block">
               Deneyim & Eğitim
@@ -118,13 +117,11 @@ export default function Experience() {
             <div className="w-12 h-0.5 bg-sage-400" />
           </motion.div>
 
-          {/* Categories */}
           <div className="space-y-12">
             {categories.map((cat) => {
               const Icon = cat.icon;
               return (
                 <motion.div key={cat.id} variants={itemVariants}>
-                  {/* Category Header */}
                   <div className="flex items-center gap-3 mb-6">
                     <div className={`w-9 h-9 ${cat.iconBg} rounded-xl flex items-center justify-center`}>
                       <Icon size={17} className={cat.color} />
@@ -135,7 +132,6 @@ export default function Experience() {
                     <div className="flex-1 h-px bg-cream-300" />
                   </div>
 
-                  {/* Items */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ml-0 md:ml-12">
                     {cat.items.map((item, idx) => (
                       <motion.div

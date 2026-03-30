@@ -77,6 +77,7 @@ export default function Contact() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -84,14 +85,34 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate form submission — connect to a real backend or Formspree in production
-    setTimeout(() => {
+    setError("");
+
+    try {
+      const res = await fetch("https://formspree.io/f/xwvwozed", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError("Mesaj gönderilemedi. Lütfen tekrar deneyin.");
+      }
+    } catch {
+      setError("Bir bağlantı hatası oluştu. Lütfen tekrar deneyin.");
+    } finally {
       setLoading(false);
-      setSubmitted(true);
-    }, 1200);
+    }
   };
 
   return (
@@ -103,7 +124,6 @@ export default function Contact() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          {/* Header */}
           <motion.div variants={itemVariants} className="text-center max-w-xl mx-auto mb-16">
             <span className="font-inter text-xs text-sage-500 font-medium tracking-widest uppercase mb-3 block">
               İletişim
@@ -121,7 +141,6 @@ export default function Contact() {
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
-            {/* Left: Contact Info */}
             <motion.div variants={itemVariants} className="lg:col-span-2 space-y-6">
               <div>
                 <h3 className="font-playfair text-xl font-semibold text-text-main mb-2">
@@ -157,7 +176,6 @@ export default function Contact() {
                 })}
               </div>
 
-              {/* Note */}
               <div className="bg-sage-50 border border-sage-200 rounded-2xl p-5">
                 <p className="font-inter text-xs text-sage-600 leading-relaxed">
                   <strong className="font-semibold">Bilgi:</strong> Tüm seans ve danışmanlık hizmetleri yalnızca online (video görüşme) ortamında yürütülmektedir. Yüz yüze görüşme yapılmamaktadır.
@@ -165,7 +183,6 @@ export default function Contact() {
               </div>
             </motion.div>
 
-            {/* Right: Contact Form */}
             <motion.div variants={itemVariants} className="lg:col-span-3">
               <div className="bg-white rounded-3xl p-8 md:p-10 border border-cream-200 shadow-sm">
                 {submitted ? (
@@ -300,6 +317,9 @@ export default function Contact() {
                       )}
                     </button>
 
+                    {error && (
+                      <p className="font-inter text-xs text-red-500 text-center">{error}</p>
+                    )}
                     <p className="font-inter text-xs text-text-light text-center">
                       Bilgileriniz yalnızca iletişim amacıyla kullanılır.
                     </p>

@@ -62,7 +62,6 @@ export default function Services() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          {/* Header */}
           <motion.div variants={cardVariants} className="text-center max-w-2xl mx-auto mb-16">
             <span className="font-inter text-xs text-sage-500 font-medium tracking-widest uppercase mb-3 block">
               Hizmetlerim
@@ -76,7 +75,6 @@ export default function Services() {
             </p>
           </motion.div>
 
-          {/* Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {services.map((service, idx) => {
               const Icon = service.icon;
@@ -86,7 +84,6 @@ export default function Services() {
                   variants={cardVariants}
                   className="group relative bg-cream-100 rounded-3xl p-7 border border-cream-200 hover:border-sage-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
                 >
-                  {/* Top accent */}
                   <div className="absolute top-0 left-8 right-8 h-0.5 bg-gradient-to-r from-transparent via-sage-300 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
 
                   <div className="w-12 h-12 bg-sage-100 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-sage-200 transition-colors duration-200">
@@ -126,7 +123,6 @@ export default function Services() {
             })}
           </div>
 
-          {/* CTA */}
           <motion.div
             variants={cardVariants}
             className="bg-sage-400 rounded-3xl p-8 md:p-10 text-center text-white"

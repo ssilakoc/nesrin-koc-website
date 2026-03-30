@@ -38,7 +38,11 @@ const containerVariants: Variants = {
 
 const itemVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
+  },
 };
 
 export default function About() {
@@ -54,7 +58,6 @@ export default function About() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          {/* Section Header */}
           <motion.div variants={itemVariants} className="max-w-2xl mb-16">
             <span className="font-inter text-xs text-sage-500 font-medium tracking-widest uppercase mb-3 block">
               Hakkımda
@@ -62,43 +65,55 @@ export default function About() {
             <h2 className="font-playfair text-4xl md:text-5xl text-text-main leading-tight mb-6">
               Empati ve Akademiyi
               <br />
-              <span className="text-sage-500 italic">Harmanlayan</span> Bir Yaklaşım
+              <span className="text-sage-500 italic">Harmanlayan</span> Bir
+              Yaklaşım
             </h2>
             <div className="w-12 h-0.5 bg-sage-400" />
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* Left: Main Text */}
             <motion.div variants={itemVariants} className="space-y-5">
               <p className="font-inter text-base text-text-muted leading-relaxed">
-                İstanbul Medipol Üniversitesi&apos;nin %100 İngilizce Psikoloji programını{" "}
+                İstanbul Medipol Üniversitesi&apos;nin %100 İngilizce Psikoloji
+                programını{" "}
                 <strong className="text-text-main font-medium">
                   3.47 GPA ile Onur Belgesi
                 </strong>{" "}
-                alarak tamamladım. Eğitimim boyunca edindiğim akademik donanımı, gerçek dünya deneyimleriyle birleştirerek psikoloji alanına anlam taşıyan bir kariyer inşa etmeye çalışıyorum.
+                alarak tamamladım. Eğitimim boyunca edindiğim akademik donanımı,
+                gerçek dünya deneyimleriyle birleştirerek psikoloji alanına
+                anlam taşıyan bir kariyer inşa etmeye çalışıyorum.
               </p>
               <p className="font-inter text-base text-text-muted leading-relaxed">
-                Çocuk ve ergenlerle çalışmak, benim için yalnızca bir uzmanlık alanı değil; gerçek bir tutku. İstanbul Çapa Tıp Fakültesi&apos;ndeki klinik stajım, İZEV&apos;deki gönüllü çalışmalarım ve TEGV&apos;deki eğitmenlik deneyimlerim bu tutkunun izlerini taşımaktadır.
+                Çocuk ve ergenlerle çalışmak, benim için yalnızca bir uzmanlık
+                alanı değil; gerçek bir tutku. İstanbul Çapa Tıp
+                Fakültesi&apos;ndeki klinik stajım, İZEV&apos;deki gönüllü
+                çalışmalarım ve TEGV&apos;deki eğitmenlik deneyimlerim bu
+                tutkunun izlerini taşımaktadır.
               </p>
               <p className="font-inter text-base text-text-muted leading-relaxed">
-                Psikolojik desteğe coğrafi ya da ekonomik nedenlerle erişemeyen bireylere online danışmanlık yoluyla ulaşmak, çalışmalarımın temel motivasyonunu oluşturuyor.
+                Psikolojik desteğe coğrafi ya da ekonomik nedenlerle erişemeyen
+                bireylere online danışmanlık yoluyla ulaşmak, çalışmalarımın
+                temel motivasyonunu oluşturuyor.
               </p>
 
               <div className="pt-4 flex flex-wrap gap-2">
-                {["BDT", "Şema Terapi", "Gestalt", "Çocuk Psikolojisi", "Ergen Psikolojisi"].map(
-                  (tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 bg-sage-100 text-sage-600 rounded-full text-xs font-inter font-medium"
-                    >
-                      {tag}
-                    </span>
-                  )
-                )}
+                {[
+                  "BDT",
+                  "Şema Terapi",
+                  "Gestalt",
+                  "Çocuk Psikolojisi",
+                  "Ergen Psikolojisi",
+                ].map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-3 py-1 bg-sage-100 text-sage-600 rounded-full text-xs font-inter font-medium"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
             </motion.div>
 
-            {/* Right: Highlight Cards */}
             <motion.div
               variants={containerVariants}
               className="grid grid-cols-1 sm:grid-cols-2 gap-4"

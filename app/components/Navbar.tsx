@@ -47,7 +47,6 @@ export default function Navbar() {
           Nesrin Koç
         </button>
 
-        {/* Desktop Nav */}
         <ul className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <li key={link.href}>
@@ -69,7 +68,6 @@ export default function Navbar() {
           Randevu Al
         </button>
 
-        {/* Mobile hamburger */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden text-text-main p-1"
@@ -79,7 +77,6 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div

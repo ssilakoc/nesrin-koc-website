@@ -20,7 +20,6 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen bg-cream-100 flex items-center overflow-hidden"
     >
-      {/* Subtle background decorations */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-sage-100/40 rounded-full blur-3xl translate-x-1/2" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-sage-50/60 rounded-full blur-3xl -translate-x-1/3" />
@@ -30,7 +29,6 @@ export default function Hero() {
       </div>
 
       <div className="relative max-w-6xl mx-auto px-6 py-32 md:py-24 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-        {/* Text Content */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
@@ -91,7 +89,6 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Profile Image */}
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
@@ -99,7 +96,6 @@ export default function Hero() {
           className="order-1 md:order-2 flex justify-center md:justify-end"
         >
           <div className="relative">
-            {/* Decorative ring */}
             <div className="absolute -inset-3 bg-gradient-to-br from-sage-200 to-sage-100 rounded-[2.5rem] rotate-3 opacity-60" />
             <div className="absolute -inset-1.5 bg-cream-200 rounded-[2rem] -rotate-1" />
 
@@ -114,7 +110,6 @@ export default function Hero() {
               />
             </div>
 
-            {/* Floating badge */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -140,7 +135,6 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.button
         onClick={scrollToAbout}
         initial={{ opacity: 0 }}
